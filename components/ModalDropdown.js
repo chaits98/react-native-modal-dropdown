@@ -240,9 +240,22 @@ export default class ModalDropdown extends Component {
     const showInBottom = bottomSpace >= dropdownHeight || bottomSpace >= this._buttonFrame.y;
     const showInLeft = rightSpace >= this._buttonFrame.x;
 
+    var topVal = 0;
+    if (showInBottom){
+      topVal = this._buttonFrame.y + this._buttonFrame.h;
+    } else {
+      var height = 0;
+      if (dropdownHeight === "auto"){
+        height = -20;
+      } else {
+        height = dropdownHeight;
+      }
+      topVal = Math.max(0, this._buttonFrame.y - height);
+    }
+
     const positionStyle = {
       height: dropdownHeight,
-      top: showInBottom ? this._buttonFrame.y + this._buttonFrame.h : Math.max(0, this._buttonFrame.y - dropdownHeight),
+      top: topVal
     };
 
     if (showInLeft) {
@@ -288,7 +301,7 @@ export default class ModalDropdown extends Component {
       <FlatList
         scrollEnabled={scrollEnabled}
         style={styles.list}
-        ItemSeparatorComponent={this._renderSeparator}
+        // ItemSeparatorComponent={this._renderSeparator}
         data={options}
         keyExtractor={this._keyExtractor}
         renderItem={this._renderRow}
@@ -398,6 +411,7 @@ const styles = StyleSheet.create({
     fontSize: 12
   },
   modal: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     flexGrow: 1
   },
   dropdown: {
@@ -407,6 +421,7 @@ const styles = StyleSheet.create({
     borderColor: 'lightgray',
     borderRadius: 2,
     backgroundColor: 'white',
+    elevation: 3,
     justifyContent: 'center'
   },
   loading: {
@@ -418,9 +433,9 @@ const styles = StyleSheet.create({
   rowText: {
     paddingHorizontal: 6,
     paddingVertical: 10,
-    fontSize: 11,
+    fontSize: 15,
     color: 'gray',
-    backgroundColor: 'white',
+    backgroundColor: 'blue',
     textAlignVertical: 'center'
   },
   highlightedRowText: {
