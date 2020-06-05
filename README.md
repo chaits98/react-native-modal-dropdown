@@ -3,6 +3,8 @@
 # react-native-modal-dropdown
 A react-native dropdown/picker/selector component for both Android & iOS.
 
+###Forked from https://github.com/sohobloo/react-native-modal-dropdown
+
 ## Features
 - Pure JS.
 - Compatible with both iOS and Android.
@@ -17,16 +19,9 @@ A react-native dropdown/picker/selector component for both Android & iOS.
 
 You can find them in the example.
 
-## Update History
-
-### v0.7.0
-- Quick fix for react native 0.60. (Thanks to [@ibtesamlatif2997](https://github.com/ibtesamlatif2997))
-
-[Full update history list](https://github.com/sohobloo/react-native-modal-dropdown/wiki/Update-History)
-
 ## Installation
 ```sh
-npm i react-native-modal-dropdown -save
+npm install --save git+https://github.com/chaits98/react-native-modal-dropdown.git
 ```
 
 ## Usage
